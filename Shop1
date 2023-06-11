@@ -1,0 +1,29 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Shop1 : MonoBehaviour
+{
+    public OnClick script;
+    [Header("Стоимость")]
+    public float sale;
+    [Header("Кнопка покупки")]
+    public GameObject buy;
+    public Text saleText;
+    public Text planetText;
+    [Header("Название планеты")]
+    public string nameOfPlanet;
+
+    void Update()
+    {
+        saleText.text = "Стоимость : " + sale + "$";
+        planetText.text = "Планета :" + nameOfPlanet;
+    }
+    public void Buy()
+    {
+     if(script.Clicks>=sale)
+     {
+        script.Clicks-=sale;
+        Destroy(buy);
+     }
+    }
+}
